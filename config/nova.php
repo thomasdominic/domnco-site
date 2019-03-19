@@ -89,6 +89,6 @@ return [
     |
     */
 
-    'pagination' => 'links'
+    'pagination' => 'links',
 
 ];
