@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "941fa309de7e31d942e052dd72ec4472",
+    "content-hash": "298d18337ce9aaabbccd1c6006f11f1c",
     "packages": [
         {
             "name": "cakephp/chronos",
@@ -2757,6 +2757,68 @@
             "time": "2019-02-23T15:17:42+00:00"
         },
         {
+            "name": "thomasdominic/laravel-rerouter",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../../packages/laravel-rerouter",
+                "reference": "aa93e95bed0f07949d75ee004ec56fe405125175"
+            },
+            "require": {
+                "illuminate/support": "5.8.*",
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "3.8.*",
+                "phpunit/phpunit": "^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Thomasdominic\\LaravelRerouter\\LaravelRerouterServiceProvider"
+                    ],
+                    "aliases": {
+                        "LaravelRerouter": "Thomasdominic\\LaravelRerouter\\LaravelRerouterFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Thomasdominic\\LaravelRerouter\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Thomasdominic\\LaravelRerouter\\Tests\\": "tests"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "vendor/bin/phpunit"
+                ],
+                "test-coverage": [
+                    "vendor/bin/phpunit --coverage-html coverage"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dominic THOMAS",
+                    "email": "dominic.thomas76@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravel ReRouter allow re-route UrlNotFoundException",
+            "homepage": "https://github.com/thomasdominic/laravel-rerouter",
+            "keywords": [
+                "laravel-rerouter",
+                "thomasdominic"
+            ]
+        },
+        {
             "name": "tijsverkoyen/css-to-inline-styles",
             "version": "2.2.1",
             "source": {
@@ -4621,7 +4683,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "thomasdominic/laravel-rerouter": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
