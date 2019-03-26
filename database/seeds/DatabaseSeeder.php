@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('secret'),
         ]);
          $this->call(PostsTableSeeder::class);
+        $customers = factory(App\Customer::class,10)->create();
     }
 }
