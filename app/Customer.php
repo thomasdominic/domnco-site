@@ -12,4 +12,9 @@ class Customer extends Model
     public $translatable = ['description'];
 
     protected $dates = ['created_at','deleted_at'];
+
+    public function experiences()
+    {
+        return $this->hasMany(Experience::class);
+    }
 }
