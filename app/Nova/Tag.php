@@ -2,30 +2,26 @@
 
 namespace App\Nova;
 
-use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\DateTime;
-use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\Text;
 use Spatie\NovaTranslatable\Translatable;
-use Spatie\TagsField\Tags;
+use Spatie\Tags\Tag as TagModel;
 
-class Post extends Resource
+class Tag extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = 'App\Post';
+    public static $model = TagModel::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'name';
 
     /**
      * The columns that should be searched.
@@ -33,7 +29,7 @@ class Post extends Resource
      * @var array
      */
     public static $search = [
-        'id','title'
+        'name',
     ];
 
     /**
@@ -46,26 +42,9 @@ class Post extends Resource
     {
 
         return [
-            ID::make()->sortable(),
-
             Translatable::make([
-                Text::make('Titre','title'),
-                Text::make('slug')->onlyOnDetail(),
-                Markdown::make('Contenu','text'),
+                Text::make('Name')->sortable(),
             ]),
-
-            DateTime::make('Publié le','published_at'),
-
-            BelongsTo::make('Créateur','user',User::class),
-
-            Text::make('URL Source','source_url')->hideFromIndex(),
-
-            DateTime::make('Créé le','created_at')->onlyOnDetail(),
-            DateTime::make('Modifié le','updated_at')->onlyOnDetail(),
-
-            Tags::make('Tags')->type('post-tags')
-
-
 
         ];
     }

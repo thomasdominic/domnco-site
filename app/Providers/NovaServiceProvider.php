@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\App;
 use Laravel\Nova\Nova;
 use Laravel\Nova\Cards\Help;
 use Illuminate\Support\Facades\Gate;
@@ -19,6 +20,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
         parent::boot();
 
         \Spatie\NovaTranslatable\Translatable::defaultLocales(['fr', 'en']);
+        App::setLocale('fr');
     }
 
     /**
