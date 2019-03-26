@@ -2,14 +2,14 @@
 
 namespace App\Nova;
 
-use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\DateTime;
+use Spatie\TagsField\Tags;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\Markdown;
+use Laravel\Nova\Fields\BelongsTo;
 use Spatie\NovaTranslatable\Translatable;
-use Spatie\TagsField\Tags;
 
 class Post extends Resource
 {
@@ -33,7 +33,7 @@ class Post extends Resource
      * @var array
      */
     public static $search = [
-        'id','title'
+        'id', 'title',
     ];
 
     /**
@@ -44,28 +44,25 @@ class Post extends Resource
      */
     public function fields(Request $request)
     {
-
         return [
             ID::make()->sortable(),
 
             Translatable::make([
-                Text::make('Titre','title'),
+                Text::make('Titre', 'title'),
                 Text::make('slug')->onlyOnDetail(),
-                Markdown::make('Contenu','text'),
+                Markdown::make('Contenu', 'text'),
             ]),
 
-            DateTime::make('Publié le','published_at'),
+            DateTime::make('Publié le', 'published_at'),
 
-            BelongsTo::make('Créateur','user',User::class),
+            BelongsTo::make('Créateur', 'user', User::class),
 
-            Text::make('URL Source','source_url')->hideFromIndex(),
+            Text::make('URL Source', 'source_url')->hideFromIndex(),
 
-            DateTime::make('Créé le','created_at')->onlyOnDetail(),
-            DateTime::make('Modifié le','updated_at')->onlyOnDetail(),
+            DateTime::make('Créé le', 'created_at')->onlyOnDetail(),
+            DateTime::make('Modifié le', 'updated_at')->onlyOnDetail(),
 
-            Tags::make('Tags')->type('post-tags')
-
-
+            Tags::make('Tags')->type('post-tags'),
 
         ];
     }

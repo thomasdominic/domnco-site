@@ -2,14 +2,13 @@
 
 namespace App\Nova;
 
-use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Date;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Markdown;
-use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Fields\BelongsTo;
 use Spatie\NovaTranslatable\Translatable;
 
 class Experience extends Resource
@@ -28,7 +27,6 @@ class Experience extends Resource
      */
     public static $title = 'title';
 
-
     public function subtitle()
     {
         return $this->customer->name;
@@ -40,7 +38,7 @@ class Experience extends Resource
      * @var array
      */
     public static $search = [
-        'id','title'
+        'id', 'title',
     ];
 
     /**
@@ -55,13 +53,13 @@ class Experience extends Resource
             ID::make()->sortable(),
             Image::make('Image'),
             Translatable::make([
-                Text::make('Poste','title'),
+                Text::make('Poste', 'title'),
             ]),
 
-            Date::make('Date de début','begin_at'),
-            Date::make('Date de fin','finish_at'),
+            Date::make('Date de début', 'begin_at'),
+            Date::make('Date de fin', 'finish_at'),
             Translatable::make([
-                Markdown::make('Description','description'),
+                Markdown::make('Description', 'description'),
             ]),
 
             BelongsTo::make('Customer'),

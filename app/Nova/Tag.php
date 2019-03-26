@@ -4,8 +4,8 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
-use Spatie\NovaTranslatable\Translatable;
 use Spatie\Tags\Tag as TagModel;
+use Spatie\NovaTranslatable\Translatable;
 
 class Tag extends Resource
 {
@@ -40,7 +40,6 @@ class Tag extends Resource
      */
     public function fields(Request $request)
     {
-
         return [
             Translatable::make([
                 Text::make('Name')->sortable(),

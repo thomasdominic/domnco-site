@@ -3,8 +3,8 @@
 namespace App;
 
 use App\Traits\HasSlug;
-use Illuminate\Database\Eloquent\Model;
 use Spatie\Tags\HasTags;
+use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
 class Post extends Model
@@ -13,10 +13,9 @@ class Post extends Model
 
     public $translatable = ['title', 'slug', 'text'];
 
-
     protected $guarded = [];
 
-    protected $dates = ['created_at','updated_at','published_at'];
+    protected $dates = ['created_at', 'updated_at', 'published_at'];
 
     public function user()
     {
@@ -29,5 +28,4 @@ class Post extends Model
         $this->setSlugName('slug');
         $this->setSlugSource('title');
     }
-
 }
