@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
          $this->call(PostsTableSeeder::class);
         $customers = factory(App\Customer::class,10)->create();
         $experience = factory(App\Experience::class,5)->create();
+        $pages = factory(App\Page::class,10)->create();
     }
 }
