@@ -9,7 +9,7 @@ class Seo extends Model
 {
     use HasTranslations;
 
-    public $translatable = ['title','description'];
+    public $translatable = ['title', 'description'];
 
     public function referencable()
     {

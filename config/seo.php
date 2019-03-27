@@ -12,5 +12,5 @@ return [
         'warnlength' => 150,
         'prefixe' => '',
         'suffixe' => '',
-    ]
+    ],
 ];
