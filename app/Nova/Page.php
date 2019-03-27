@@ -5,7 +5,6 @@ namespace App\Nova;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Http\Requests\NovaRequest;
 use Spatie\NovaTranslatable\Translatable;
 
 class Page extends Resource
@@ -30,7 +29,7 @@ class Page extends Resource
      * @var array
      */
     public static $search = [
-        'id','name','title'
+        'id', 'name', 'title',
     ];
 
     /**
@@ -43,12 +42,12 @@ class Page extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Nom','name'),
+            Text::make('Nom', 'name'),
             Translatable::make([
-               Text::make('Titre','title'),
-               Text::make('Slug','slug')->exceptOnForms(),
+               Text::make('Titre', 'title'),
+               Text::make('Slug', 'slug')->exceptOnForms(),
             ]),
-            Text::make('Fichier Blade','blade_path'),
+            Text::make('Fichier Blade', 'blade_path'),
         ];
     }
 

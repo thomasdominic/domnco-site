@@ -16,9 +16,9 @@ class DatabaseSeeder extends Seeder
             'email' => 'dom@dom.fr',
             'password' => bcrypt('secret'),
         ]);
-         $this->call(PostsTableSeeder::class);
-        $customers = factory(App\Customer::class,10)->create();
-        $experience = factory(App\Experience::class,5)->create();
-        $pages = factory(App\Page::class,10)->create();
+        $this->call(PostsTableSeeder::class);
+        $customers = factory(App\Customer::class, 10)->create();
+        $experience = factory(App\Experience::class, 5)->create();
+        $pages = factory(App\Page::class, 10)->create();
     }
 }
