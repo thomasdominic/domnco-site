@@ -3,12 +3,13 @@
 namespace App;
 
 use App\Traits\HasSlug;
+use App\Traits\Referencable;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
 class Page extends Model
 {
-    use HasSlug, HasTranslations;
+    use HasSlug, HasTranslations, Referencable;
 
     public $translatable = ['title', 'slug'];
 

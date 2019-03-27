@@ -2,25 +2,22 @@
 
 namespace App\Nova;
 
-use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\MorphOne;
-use Spatie\TagsField\Tags;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\MorphTo;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\DateTime;
-use Laravel\Nova\Fields\Markdown;
-use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Http\Requests\NovaRequest;
 use Spatie\NovaTranslatable\Translatable;
 
-class Post extends Resource
+class Seo extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = 'App\Post';
+    public static $model = 'App\Seo';
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -35,7 +32,7 @@ class Post extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'title',
+        'id',
     ];
 
     /**
@@ -50,25 +47,16 @@ class Post extends Resource
             ID::make()->sortable(),
 
             Translatable::make([
-                Text::make('Titre', 'title'),
-                Text::make('slug')->onlyOnDetail(),
-                Markdown::make('Contenu', 'text'),
+               Text::make('title'),
+            ]),
+            Translatable::make([
+                Textarea::make('description'),
             ]),
 
-            DateTime::make('Publié le', 'published_at'),
-
-            BelongsTo::make('Créateur', 'user', User::class),
-
-            Text::make('URL Source', 'source_url')->hideFromIndex(),
-
-            DateTime::make('Créé le', 'created_at')->onlyOnDetail(),
-            DateTime::make('Modifié le', 'updated_at')->onlyOnDetail(),
-
-            Tags::make('Tags')->type('post-tags'),
-
-            MorphOne::make('SEO','seo',Seo::class),
-
-            Boolean::make('SEO','has_seo')->onlyOnIndex(),
+            MorphTo::make('Sujet du référencement','referencable')->types([
+                Page::class,
+                Post::class,
+            ])
         ];
     }
 

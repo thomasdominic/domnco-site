@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\MorphOne;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Spatie\NovaTranslatable\Translatable;
@@ -49,6 +50,7 @@ class Page extends Resource
                Text::make('Slug','slug')->exceptOnForms(),
             ]),
             Text::make('Fichier Blade','blade_path'),
+            MorphOne::make('SEO','seo',Seo::class),
         ];
     }
 

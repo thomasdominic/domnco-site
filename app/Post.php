@@ -3,13 +3,14 @@
 namespace App;
 
 use App\Traits\HasSlug;
+use App\Traits\Referencable;
 use Spatie\Tags\HasTags;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
 class Post extends Model
 {
-    use HasTranslations, HasSlug, HasTags;
+    use HasTranslations, HasSlug, HasTags, Referencable;
 
     public $translatable = ['title', 'slug', 'text'];
 
