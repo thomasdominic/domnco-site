@@ -2,12 +2,11 @@
 
 namespace App\Nova;
 
+use ElevateDigital\CharcountedFields\TextareaCounted;
+use ElevateDigital\CharcountedFields\TextCounted;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\MorphTo;
-use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Textarea;
-use Laravel\Nova\Http\Requests\NovaRequest;
 use Spatie\NovaTranslatable\Translatable;
 
 class Seo extends Resource
@@ -47,10 +46,15 @@ class Seo extends Resource
             ID::make()->sortable(),
 
             Translatable::make([
-               Text::make('title'),
+                TextCounted::make('Titre','title')
+                    ->maxChars(config('seo.title.maxlength'))
+                    ->warningAt(config('seo.title.warnlength')),
             ]),
             Translatable::make([
-                Textarea::make('description'),
+                TextareaCounted::make('Description','description')
+                    ->maxChars(config('seo.description.maxlength'))
+                    ->warningAt(config('seo.description.warnlength')),
+
             ]),
 
             MorphTo::make('Sujet du référencement','referencable')->types([

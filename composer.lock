@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "071fac4a323e4ed1122bf9a486392817",
+    "content-hash": "818a5251a6eaad705c9a0dd54edb4f9d",
     "packages": [
         {
             "name": "cakephp/chronos",
@@ -322,6 +322,47 @@
                 "validator"
             ],
             "time": "2018-12-04T22:38:24+00:00"
+        },
+        {
+            "name": "elevate-digital/nova-charcounted-fields",
+            "version": "2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/elevate-digital/nova-charcounted-fields.git",
+                "reference": "edd4da952e20bb57716469246a0f798d1f210cc3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/elevate-digital/nova-charcounted-fields/zipball/edd4da952e20bb57716469246a0f798d1f210cc3",
+                "reference": "edd4da952e20bb57716469246a0f798d1f210cc3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "ElevateDigital\\CharcountedFields\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ElevateDigital\\CharcountedFields\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Text and textarea fields with a character counter.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "time": "2018-11-05T18:22:08+00:00"
         },
         {
             "name": "erusev/parsedown",
