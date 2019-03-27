@@ -11,7 +11,7 @@ class Customer extends Model
 
     public $translatable = ['description'];
 
-    protected $dates = ['created_at','deleted_at'];
+    protected $dates = ['created_at', 'deleted_at'];
 
     public function experiences()
     {

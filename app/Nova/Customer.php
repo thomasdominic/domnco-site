@@ -2,14 +2,13 @@
 
 namespace App\Nova;
 
-use Laravel\Nova\Fields\DateTime;
-use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Image;
-use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\Markdown;
 use Spatie\NovaTranslatable\Translatable;
 
 class Customer extends Resource
@@ -48,11 +47,11 @@ class Customer extends Resource
         return [
             ID::make()->sortable(),
             Image::make('Image'),
-            Text::make('Nom','name'),
+            Text::make('Nom', 'name'),
             Translatable::make([
-                Markdown::make('Description','description'),
+                Markdown::make('Description', 'description'),
             ]),
-            DateTime::make('Date de création','created_at')->exceptOnForms(),
+            DateTime::make('Date de création', 'created_at')->exceptOnForms(),
             HasMany::make('Experiences'),
         ];
     }
