@@ -3,8 +3,8 @@
 namespace App;
 
 use App\Traits\HasSlug;
-use App\Traits\Referencable;
 use Spatie\Tags\HasTags;
+use App\Traits\Referencable;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 

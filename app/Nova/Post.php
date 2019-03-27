@@ -2,14 +2,14 @@
 
 namespace App\Nova;
 
-use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\MorphOne;
 use Spatie\TagsField\Tags;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\Markdown;
+use Laravel\Nova\Fields\MorphOne;
 use Laravel\Nova\Fields\BelongsTo;
 use Spatie\NovaTranslatable\Translatable;
 
@@ -66,9 +66,9 @@ class Post extends Resource
 
             Tags::make('Tags')->type('post-tags'),
 
-            MorphOne::make('SEO','seo',Seo::class),
+            MorphOne::make('SEO', 'seo', Seo::class),
 
-            Boolean::make('SEO','has_seo')->onlyOnIndex(),
+            Boolean::make('SEO', 'has_seo')->onlyOnIndex(),
         ];
     }
 
