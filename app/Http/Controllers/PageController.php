@@ -19,8 +19,9 @@ class PageController extends Controller
 
     private function getSomePage($name)
     {
-        $page = Page::where('name',$name)->with('seo')->firstOrFail();
-        return view($page->blade_path,compact('page'));
+        $page = Page::where('name', $name)->with('seo')->firstOrFail();
+
+        return view($page->blade_path, compact('page'));
     }
 
     public function getAboutPage()

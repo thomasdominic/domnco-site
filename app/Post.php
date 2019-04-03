@@ -2,10 +2,8 @@
 
 namespace App;
 
-use App\Traits\HasSlug;
-use Carbon\Carbon;
-use Illuminate\Support\Str;
 use Parsedown;
+use App\Traits\HasSlug;
 use Spatie\Tags\HasTags;
 use App\Traits\Referencable;
 use Illuminate\Database\Eloquent\Model;
@@ -15,7 +13,7 @@ class Post extends Model
 {
     use HasTranslations, HasSlug, HasTags, Referencable;
 
-    public $translatable = ['title', 'slug','summary', 'text'];
+    public $translatable = ['title', 'slug', 'summary', 'text'];
 
     protected $guarded = [];
 
@@ -37,6 +35,7 @@ class Post extends Model
     {
         return (new Parsedown())->text($this->text);
     }
+
     public function getSummaryAsHtmlAttribute(): string
     {
         return (new Parsedown())->text($this->summary);
@@ -51,6 +50,4 @@ class Post extends Model
     {
         return strip_tags($this->getSummaryAsHtmlAttribute());
     }
-
-
 }
