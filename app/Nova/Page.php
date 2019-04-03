@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
@@ -50,6 +51,7 @@ class Page extends Resource
             ]),
             Text::make('Fichier Blade', 'blade_path'),
             MorphOne::make('SEO', 'seo', Seo::class),
+            Boolean::make('SEO', 'has_seo')->onlyOnIndex(),
         ];
     }
 

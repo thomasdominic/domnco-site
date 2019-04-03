@@ -52,6 +52,7 @@ class Post extends Resource
             Translatable::make([
                 Text::make('Titre', 'title'),
                 Text::make('slug')->onlyOnDetail(),
+                Markdown::make('Résumé', 'summary'),
                 Markdown::make('Contenu', 'text'),
             ]),
 

@@ -3,6 +3,9 @@
 namespace App;
 
 use App\Traits\HasSlug;
+use Carbon\Carbon;
+use Illuminate\Support\Str;
+use Parsedown;
 use Spatie\Tags\HasTags;
 use App\Traits\Referencable;
 use Illuminate\Database\Eloquent\Model;
@@ -12,7 +15,7 @@ class Post extends Model
 {
     use HasTranslations, HasSlug, HasTags, Referencable;
 
-    public $translatable = ['title', 'slug', 'text'];
+    public $translatable = ['title', 'slug','summary', 'text'];
 
     protected $guarded = [];
 
@@ -29,4 +32,25 @@ class Post extends Model
         $this->setSlugName('slug');
         $this->setSlugSource('title');
     }
+
+    public function getTextAsHtmlAttribute(): string
+    {
+        return (new Parsedown())->text($this->text);
+    }
+    public function getSummaryAsHtmlAttribute(): string
+    {
+        return (new Parsedown())->text($this->summary);
+    }
+
+    public function getSeoTitle()
+    {
+        return $this->title;
+    }
+
+    public function getSeoDescription()
+    {
+        return strip_tags($this->getSummaryAsHtmlAttribute());
+    }
+
+
 }

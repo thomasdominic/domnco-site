@@ -19,4 +19,14 @@ class Page extends Model
         $this->setSlugName('slug');
         $this->setSlugSource('title');
     }
+
+    public function getSeoTitle()
+    {
+        return $this->title;
+    }
+
+    public function getSeoDescription()
+    {
+        return "description";
+    }
 }

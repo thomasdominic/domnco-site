@@ -17,6 +17,27 @@ class PageController extends Controller
         //
     }
 
+    private function getSomePage($name)
+    {
+        $page = Page::where('name',$name)->with('seo')->firstOrFail();
+        return view($page->blade_path,compact('page'));
+    }
+
+    public function getAboutPage()
+    {
+        return $this->getSomePage('about');
+    }
+
+    public function getHomePage()
+    {
+        return $this->getSomePage('home');
+    }
+
+    public function getContactPage()
+    {
+        return $this->getSomePage('contact');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

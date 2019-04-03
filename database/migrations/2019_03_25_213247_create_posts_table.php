@@ -17,7 +17,8 @@ class CreatePostsTable extends Migration
             $table->bigIncrements('id');
             $table->json('title');
             $table->json('slug');
-            $table->text('text');
+            $table->json('summary');
+            $table->json('text');
             $table->dateTime('published_at')->nullable();
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');

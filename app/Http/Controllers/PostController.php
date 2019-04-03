@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
+use Spatie\Tags\Tag;
 
 class PostController extends Controller
 {
@@ -14,7 +15,29 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::all();
+        $tags = Tag::getWithType('post-tags');
+        return view('blog.index',compact('posts','tags'));
+    }
+
+    public function byTag(string $slug)
+    {
+        $currentLocale = l10n()->getLocale();
+        $posts = Post::withAnyTags([$slug],'post-tags')->get();
+        $tags = Tag::getWithType('post-tags');
+        return view('blog.index',compact('posts','tags'));
+    }
+
+    public function search(Request $request)
+    {
+        $currentLocale = l10n()->getLocale();
+        $keyword = $request->input('q');
+        $posts = Post::where(function ($query) use ($currentLocale,$keyword){
+           $query->where('title->'.$currentLocale,'like','%'.$keyword.'%')
+           ->orWhere('summary->'.$currentLocale,'like','%'.$keyword.'%');
+        })->get();
+        $tags = Tag::getWithType('post-tags');
+        return view('blog.index',compact('posts','tags'));
     }
 
     /**
@@ -44,9 +67,12 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(string $slug)
     {
-        //
+        $currentLocale = l10n()->getLocale();
+        $post = Post::where('slug->'.$currentLocale,$slug)->firstOrFail();
+        $tags = Tag::getWithType('post-tags');
+        return view('blog.post',compact('post','tags'));
     }
 
     /**

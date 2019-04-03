@@ -4,8 +4,70 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "818a5251a6eaad705c9a0dd54edb4f9d",
+    "content-hash": "23b38d383fbbbb695276986430c5f735",
     "packages": [
+        {
+            "name": "alexjoffroy/laravel-localization",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alexjoffroy/laravel-localization.git",
+                "reference": "ed3b10463e0373698523fef78b44c4001b372ee0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alexjoffroy/laravel-localization/zipball/ed3b10463e0373698523fef78b44c4001b372ee0",
+                "reference": "ed3b10463e0373698523fef78b44c4001b372ee0",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.5.0|~3.6.0",
+                "phpunit/phpunit": "^6.3|^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "AlexJoffroy\\Localization\\LocalizationServiceProvider"
+                    ],
+                    "aliases": {
+                        "Localization": "AlexJoffroy\\Localization\\Facades\\Localization"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "AlexJoffroy\\Localization\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alex Joffroy",
+                    "email": "hello@alexjoffroy.me",
+                    "homepage": "https://alexjoffroy.me",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A Laravel package to handle localization with ease",
+            "homepage": "https://github.com/alexjoffroy/laravel-localization",
+            "keywords": [
+                "alexjoffroy",
+                "lang",
+                "laravel",
+                "laravel-localization",
+                "localization",
+                "php",
+                "route"
+            ],
+            "time": "2018-03-04T18:28:58+00:00"
+        },
         {
             "name": "cakephp/chronos",
             "version": "1.2.4",
@@ -767,6 +829,68 @@
                 "laravel"
             ],
             "time": "2019-02-26T16:52:11+00:00"
+        },
+        {
+            "name": "laravel/telescope",
+            "version": "v2.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/telescope.git",
+                "reference": "eb3f6f8337050cc31fe1a1164240fe205e33b167"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/telescope/zipball/eb3f6f8337050cc31fe1a1164240fe205e33b167",
+                "reference": "eb3f6f8337050cc31fe1a1164240fe205e33b167",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "laravel/framework": "~5.8.0|~5.9.0",
+                "moontoast/math": "^1.1",
+                "php": "^7.1.3",
+                "symfony/var-dumper": "^4.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Telescope\\TelescopeServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Telescope\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                },
+                {
+                    "name": "Mohamed Said",
+                    "email": "mohamed@laravel.com"
+                }
+            ],
+            "description": "An elegant debug assistant for the Laravel framework.",
+            "keywords": [
+                "debugging",
+                "laravel",
+                "monitoring"
+            ],
+            "time": "2019-03-28T05:06:56+00:00"
         },
         {
             "name": "laravel/tinker",
