@@ -20,5 +20,5 @@ return[
     ],
 
     'hide_default_locale_in_url' => true,
-    
+
 ];

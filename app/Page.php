@@ -27,6 +27,6 @@ class Page extends Model
 
     public function getSeoDescription()
     {
-        return "description";
+        return 'description';
     }
 }

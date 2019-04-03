@@ -21,5 +21,4 @@ trait Referencable
     {
         return $this->seo instanceof Seo && $this->seo->id;
     }
-
 }
