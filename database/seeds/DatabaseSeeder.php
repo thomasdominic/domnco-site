@@ -21,15 +21,15 @@ class DatabaseSeeder extends Seeder
         $experience = factory(App\Experience::class, 5)->create();
         $page_home = factory(App\Page::class)->create([
             'name' => 'home',
-            'blade_path' => 'pages.home'
+            'blade_path' => 'pages.home',
         ]);
         $page_about = factory(App\Page::class)->create([
             'name' => 'about',
-            'blade_path' => 'pages.about'
+            'blade_path' => 'pages.about',
         ]);
         $page_contact = factory(App\Page::class)->create([
             'name' => 'contact',
-            'blade_path' => 'pages.contact'
+            'blade_path' => 'pages.contact',
         ]);
     }
 }
