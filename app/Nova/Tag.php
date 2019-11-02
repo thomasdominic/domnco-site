@@ -4,8 +4,8 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
-use Spatie\Tags\Tag as TagModel;
 use Spatie\NovaTranslatable\Translatable;
+use Spatie\Tags\Tag as TagModel;
 
 class Tag extends Resource
 {
