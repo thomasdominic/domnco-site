@@ -2,11 +2,11 @@
 
 namespace App;
 
-use Parsedown;
 use App\Traits\HasSlug;
-use Spatie\Tags\HasTags;
 use App\Traits\Referencable;
 use Illuminate\Database\Eloquent\Model;
+use Parsedown;
+use Spatie\Tags\HasTags;
 use Spatie\Translatable\HasTranslations;
 
 class Post extends Model

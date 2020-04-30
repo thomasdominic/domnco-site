@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Post;
-use Spatie\Tags\Tag;
 use Illuminate\Http\Request;
+use Spatie\Tags\Tag;
 
 class PostController extends Controller
 {
