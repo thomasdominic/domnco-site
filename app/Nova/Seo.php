@@ -2,12 +2,12 @@
 
 namespace App\Nova;
 
-use Laravel\Nova\Fields\ID;
+use ElevateDigital\CharcountedFields\TextareaCounted;
+use ElevateDigital\CharcountedFields\TextCounted;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\MorphTo;
 use Spatie\NovaTranslatable\Translatable;
-use ElevateDigital\CharcountedFields\TextCounted;
-use ElevateDigital\CharcountedFields\TextareaCounted;
 
 class Seo extends Resource
 {

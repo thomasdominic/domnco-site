@@ -2,11 +2,11 @@
 
 namespace App\Nova;
 
-use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\MorphOne;
+use Laravel\Nova\Fields\Text;
 use Spatie\NovaTranslatable\Translatable;
 
 class Page extends Resource
@@ -46,8 +46,8 @@ class Page extends Resource
             ID::make()->sortable(),
             Text::make('Nom', 'name'),
             Translatable::make([
-               Text::make('Titre', 'title'),
-               Text::make('Slug', 'slug')->exceptOnForms(),
+                Text::make('Titre', 'title'),
+                Text::make('Slug', 'slug')->exceptOnForms(),
             ]),
             Text::make('Fichier Blade', 'blade_path'),
             MorphOne::make('SEO', 'seo', Seo::class),
